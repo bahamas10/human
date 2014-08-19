@@ -3,7 +3,7 @@
  * given a number representing seconds
  *
  * Author: Dave Eddy <dave@daveeddy.com>
- * Date: 8/18/2013
+ * Date: 8/18/2014
  * License: MIT
  */
 
