@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <string.h>
 
 #define FROM_NOW "from now"
 #define AGO      "ago"
@@ -55,32 +55,32 @@ void human(int seconds, int dosuffix) {
 		printf("\n");
 		return;
 	}
-	printf("just now\n");
+	printf("right now\n");
 }
 
 int main(int argc, char **argv) {
-	int c;
 	int dosuffix = 0;
-	while ((c = getopt(argc, argv, "hs")) != -1) {
-		switch (c) {
-			case 'h':
-				usage(stdout);
-				return 0;
-			case 's':
-				dosuffix = 1;
-				break;
-			case '?':
-				usage(stderr);
-				return 1;
-		}
-	}
 
-	if (argc - optind == 0) {
+	if (argc <= 1) {
 		usage(stderr);
 		return 1;
 	}
 
-	for (int i = optind; i < argc; i++) {
+	// purposefully avoid getopt, because it will try to read
+	// negative numbers as arguments
+	if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0) {
+		printf("Hero\n");
+		usage(stdout);
+		return 0;
+	}
+
+	if (strcmp(argv[1], "-s") == 0 || strcmp(argv[1], "--suffix") == 0) {
+		dosuffix = 1;
+		argc--;
+		argv++;
+	}
+
+	for (int i = 1; i < argc; i++) {
 		human(atoi(argv[i]), dosuffix);
 	}
 

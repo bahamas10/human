@@ -28,9 +28,9 @@ With the C example, you can optionally pass `-s` to get a suffix
 
     $ ./human 57483
     15 hours
-    $ ./human -s -- 57483
+    $ ./human -s 57483
     15 hours from now
-    $ ./human -s -- -57483
+    $ ./human -s -57483
     15 hours ago
 
 License
