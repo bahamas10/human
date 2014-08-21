@@ -69,7 +69,6 @@ int main(int argc, char **argv) {
 	// purposefully avoid getopt, because it will try to read
 	// negative numbers as arguments
 	if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0) {
-		printf("Hero\n");
 		usage(stdout);
 		return 0;
 	}
