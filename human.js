@@ -9,11 +9,13 @@
 
 var util = require('util');
 
-module.exports = relativeDate;
+module.exports = human;
 
-function relativeDate(a) {
-  var seconds = (Date.now() - a) / 1000;
+function human(seconds) {
+  if (seconds instanceof Date)
+    seconds = Math.round((Date.now() - seconds) / 1000);
   var suffix = seconds < 0 ? 'from now' : 'ago';
+  seconds = Math.abs(seconds);
 
   var times = [
     seconds / 60 / 60 / 24 / 365, // years

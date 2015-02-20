@@ -10,6 +10,28 @@ This repository comes with a couple of implementations of the base algorithm in
 different languages.  You can use any by simply dropping the logic into your
 source code.
 
+Node.JS
+-------
+
+You can install the javascript version of this with
+
+    npm install human-time
+
+and use it like
+
+``` js
+var human = require('human-time');
+
+human(754);
+// => "12 minutes ago"
+
+human(new Date(Date.now() + 5 * 1000))
+// => "5 seconds from now"
+
+human(new Date(Date.now() - 5 * 1000))
+// => "5 seconds ago"
+```
+
 Example (C)
 -----------
 
