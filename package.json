@@ -1,6 +1,6 @@
 {
   "name": "human-time",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "show seconds in a human-readable form",
   "main": "human.js",
   "scripts": {
