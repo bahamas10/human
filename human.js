@@ -20,12 +20,13 @@ function human(seconds) {
   var times = [
     seconds / 60 / 60 / 24 / 365, // years
     seconds / 60 / 60 / 24 / 30,  // months
+    seconds / 60 / 60 / 24 / 7,   // weeks
     seconds / 60 / 60 / 24,       // days
     seconds / 60 / 60,            // hours
     seconds / 60,                 // minutes
     seconds                       // seconds
   ];
-  var names = ['year', 'month', 'day', 'hour', 'minute', 'second'];
+  var names = ['year', 'month', 'week', 'day', 'hour', 'minute', 'second'];
 
   for (var i = 0; i < names.length; i++) {
     var time = Math.floor(times[i]);

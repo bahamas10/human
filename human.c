@@ -14,7 +14,7 @@
 #define FROM_NOW "from now"
 #define AGO      "ago"
 
-static char *names[] = {"year", "month", "day", "hour", "minute", "second"};
+static char *names[] = {"year", "month", "week", "day", "hour", "minute", "second"};
 
 void usage(FILE *stream) {
 	fprintf(stream, "usage: human <seconds> ...\n");
@@ -34,6 +34,7 @@ void human(int seconds, int dosuffix) {
 	int times[] = {
 		seconds / 60 / 60 / 24 / 365, // years
 		seconds / 60 / 60 / 24 / 30,  // months
+		seconds / 60 / 60 / 24 / 7,   // weeks
 		seconds / 60 / 60 / 24,       // days
 		seconds / 60 / 60,            // hours
 		seconds / 60,                 // minutes
