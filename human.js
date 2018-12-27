@@ -7,8 +7,6 @@
  * License: MIT
  */
 
-var util = require('util');
-
 module.exports = human;
 
 function human(seconds) {
@@ -30,10 +28,12 @@ function human(seconds) {
 
   for (var i = 0; i < names.length; i++) {
     var time = Math.floor(times[i]);
+    var name = names[i];
     if (time > 1)
-      return util.format('%d %ss %s', time, names[i], suffix);
-    else if (time === 1)
-      return util.format('%d %s %s', time, names[i], suffix);
+      name += 's';
+
+    if (time >= 1)
+      return time + ' ' + name + ' ' + suffix;
   }
-  return util.format('0 seconds %s', suffix);
+  return '0 seconds ' + suffix;
 }
